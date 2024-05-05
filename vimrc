@@ -52,7 +52,7 @@ set shiftwidth=4
 set softtabstop=4
 set rnu nu list expandtab
 
-	colorscheme habamax
+	colorscheme industry
 "	set lines =30 columns =121
 	set guifont=Courier_new:h12
 " normal mode setup
@@ -86,7 +86,9 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <leader>h :set hlsearch!<CR>
 nnoremap <leader>p :up<CR>
 nnoremap <leader>r :source $MYVIMRC<CR>
-nnoremap <leader>v :edit ~\vimfiles\vimrc<CR>
+"nnoremap <leader>v :edit ~\vimfiles\vimrc<CR>
+"上面是windows下面的
+nnoremap <leader>v :edit ~\.vimrc<CR>
 nnoremap <leader>/ /<c-r>+.*商务.*2017
 nnoremap <leader>s mm/<c-r><c-w>.*商务.*\t2017\t<cr>
 nnoremap <leader>d yyggP`m+
