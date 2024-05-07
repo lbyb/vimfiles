@@ -69,7 +69,7 @@ set backspace=indent,eol,start
 " shortCut Keys
 map R :source ~/.vimrc<CR>
 "map c :edit ~/.vimrc<CR>
-inoremap ,. <Esc>
+inoremap ,. ->
 "nnoremap ,y "+y<CR>
 vnoremap ,y "+y
 nnoremap ,p O<c-r>+<esc>
