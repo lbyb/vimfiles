@@ -1,3 +1,26 @@
+function! YankMatches(pattern)
+  " 清空系统剪贴板
+  let @+ = ""
+  " 使用 vimgrep 搜索匹配项并存入快速列表
+  silent! execute 'vimgrep /'.a:pattern.'/ %'
+  " 获取快速列表内容
+  let matches = getqflist()
+  " 检查是否有匹配项
+  if empty(matches)
+    echo "No matches found for pattern: " . a:pattern
+    return
+  endif
+  " 遍历快速列表，提取每一行中的匹配内容并追加到剪贴板
+  for match in matches
+    " 提取当前行中匹配的内容
+    let match_text = matchstr(match["text"], a:pattern)
+    " 将匹配的内容追加到剪贴板
+    let @+ .= match_text . "\n"
+  endfor
+  " 提示复制成功
+  echo "Matches copied to clipboard."
+endfunction
+nnoremap <leader>,s :call YankMatches('')<left><left>
 let mapleader=" "
 " defualt dir
 "cd D:\myCode\matMag
@@ -39,3 +62,4 @@ nnoremap \d <esc>ggVG"+yG$<esc>
 nnoremap \r 0i"<esc>
 nnoremap \e 0x
 nnoremap ,y V"+y
+nnoremap <leader>,a ggVG
